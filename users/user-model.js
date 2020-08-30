@@ -17,13 +17,14 @@ function findById(id) {
 }
 
 function add(user) {
-
-}
+  return db("users")
+  .insert(userData, "id");
+} 
 
 function update(id, changes) {
 
 }
 
 function remove(id) {
-  
+
 }

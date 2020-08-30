@@ -19,7 +19,7 @@ router.get("/", (req, res) => {
 router.get("/:id", (req, res) => {
   const { id } = req.params;
 
-  Users.findById(id)git 
+  Users.findById(id)
   // db("users")
   //   .where({ id })
     .then(users => {
@@ -50,8 +50,9 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {
   const userData = req.body;
 
-  db("users")
-    .insert(userData, "id")
+  Users.add(userData)
+  // db("users")
+  //   .insert(userData, "id")
     .then(ids => {
       res.status(201).json({ created: ids[0] });
     })
