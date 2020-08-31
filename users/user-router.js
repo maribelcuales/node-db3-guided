@@ -65,9 +65,10 @@ router.put("/:id", (req, res) => {
   const { id } = req.params;
   const changes = req.body;
 
-  db("users")
-    .where({ id })
-    .update(changes)
+  Users.update(id, changes)
+  // db("users")
+  //   .where({ id })
+  //   .update(changes)
     .then(count => {
       if (count) {
         res.json({ update: count });
