@@ -53,8 +53,8 @@ router.post("/", (req, res) => {
   Users.add(userData)
   // db("users")
   //   .insert(userData, "id")
-    .then(ids => {
-      res.status(201).json({ created: ids[0] });
+    .then(user => {
+      res.status(201).json({ created: user });
     })
     .catch(err => {
       res.status(500).json({ message: "Failed to create new user" });
