@@ -22,6 +22,16 @@ select categoryId, count(*)
 from products
 group by categoryId;
 
+-- see the most expensive product by category
+select categoryId, max(price)
+from products
+group by categoryId;
+
+-- see the min price by category
+select categoryId, min(price)
+from products
+group by categoryId;
+
 -- calculate the average price per category 
 select categoryId, avg(price) as average
 from products
