@@ -42,6 +42,8 @@ order by average desc;
 ---  SQLite Studio  ---
 
 -- select all from posts 
-select * from posts;
+SELECT * FROM posts;
 
--- 
+-- posts' user_id === users' id
+SELECT * FROM posts as p
+join users as u on p.user_id = u.id;   
