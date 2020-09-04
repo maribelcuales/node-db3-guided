@@ -38,3 +38,10 @@ from products
 group by categoryId
 order by average desc;
 
+
+---  SQLite Studio  ---
+
+-- select all from posts 
+select * from posts;
+
+-- 
