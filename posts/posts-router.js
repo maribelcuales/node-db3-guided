@@ -1,28 +1,24 @@
 const express = require("express");
 
-// const db = require("../data/db-config.js");
-const Users = require("./user-model.js"); 
+const Posts = require("./posts-model.js"); 
 
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  Users.all()
-  // db("users")
+  Posts.all()
     .then(users => {
       res.json(users);
     })
     .catch(err => {
-      res.status(500).json({ message: "Failed to get users" });
+      res.status(500).json({ message: "Failed to get posts" });
     });
 });
 
 router.get("/:id", (req, res) => {
   const { id } = req.params;
 
-  Users.findById(id)
-  // db("users")
-  //   .where({ id })
-    .then(users => {
+  Posts.findById(id)
+    .then(user => {
       // const user = users[0];
       if (user) {
         res.json(user);
@@ -50,9 +46,7 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {
   const userData = req.body;
 
-  Users.add(userData)
-  // db("users")
-  //   .insert(userData, "id")
+  Posts.add(userData)
     .then(user => {
       res.status(201).json({ created: user });
     })
@@ -65,10 +59,7 @@ router.put("/:id", (req, res) => {
   const { id } = req.params;
   const changes = req.body;
 
-  Users.update(id, changes)
-  // db("users")
-  //   .where({ id })
-  //   .update(changes)
+  Posts.update(id, changes)
     .then(count => {
       if (count) {
         res.json({ update: count });
@@ -84,10 +75,7 @@ router.put("/:id", (req, res) => {
 router.delete("/:id", (req, res) => {
   const { id } = req.params;
 
-  Users.remove(id)
-  // db("users")
-  //   .where({ id })
-  //   .del()
+  Posts.remove(id)
     .then(count => {
       if (count) {
         res.json({ removed: count });
