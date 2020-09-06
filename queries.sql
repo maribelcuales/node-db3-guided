@@ -47,3 +47,8 @@ SELECT * FROM posts;
 -- posts' user_id === users' id
 SELECT * FROM posts as p
 join users as u on p.user_id = u.id;   
+
+-- Retrieve quotes and saidBy 
+SELECT p.contents as quote, u.username as saidBy 
+FROM posts as p
+join users as u on p.user_id = u.id;
