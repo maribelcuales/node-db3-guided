@@ -1,11 +1,11 @@
 SELECT products.productName as product, products.Price, suppliers.SupplierName as SuppliedBy
 FROM products
-INNER JOIN Suppliers; 
+INNER JOIN Suppliers on p.supplierId = s.supplierId; 
 
 -- CategoryName, ProductName, Price 
 select c.CategoryName, p.ProductName, p.Price
 from categories as c
-join products as p
+join products as p on c.categoryId = p.categoryId
 where p.price >- 10
 order by p.ProductName;
 
@@ -13,7 +13,7 @@ order by p.ProductName;
 -- distinct products 
 select distinct (p.ProductName), p.Price
 from categories as c
-join products as p
+join products as p on c.categoryId = p.categoryId
 where p.price >- 10
 order by p.ProductName;
 
