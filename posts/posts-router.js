@@ -31,18 +31,6 @@ router.get("/:id", (req, res) => {
     });
 });
 
-// function calculateTaxAndPrintSheet(employeeId) {
-// 	// orchestrator/ algorithm 
-// 	const employeeData = getEmployeeData(employeeId); 
-// }
-
-// function calculateTax(employee) {
-// }
-
-// function printEmployeeTaxSheet(taxSheet) {
-// }
-
-
 router.post("/", (req, res) => {
   const userData = req.body;
 
