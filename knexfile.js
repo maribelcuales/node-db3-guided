@@ -1,4 +1,4 @@
-const connectionString = process.env.DATABASE_URL || "postgresql://localhost/blog";  // this is probably gonna come from an ENV variable 
+const connectionString = process.env.DATABASE_URL || "postgresql://luis:pass@localhost/blog";  // ADD the username and password to an ENV variable 
 
 
 module.exports = {
