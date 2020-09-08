@@ -1,3 +1,6 @@
+const connectionString = process.env.DATABASE_URL || "postgresql://localhost/blog";  // this is probably gonna come from an ENV variable 
+
+
 module.exports = {
   development: {
     client: 'sqlite3',
@@ -19,4 +22,33 @@ module.exports = {
       },
     },
   },
+
+  staging: {
+    client: 'pg',
+    connection: {
+      host: 'local',  // add this 
+      database: 'my_db',
+      user:     'username',
+      password: 'password'
+    },
+    pool: {
+      min: 2,
+      max: 10
+    },
+    migrations: {
+      directory: './data/migrations',
+    }
+  },
+
+  production: {
+    client: 'pg',  // remember to npm i pg
+    connection: connectionString,
+    pool: {
+      min: 2,
+      max: 10
+    },
+    migrations: {
+      directory: './data/migrations',
+    }
+  }
 };
