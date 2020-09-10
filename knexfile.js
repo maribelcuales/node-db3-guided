@@ -3,7 +3,8 @@ const connectionString = process.env.DATABASE_URL || "postgresql://luis:pass@loc
 
 module.exports = {
   development: {
-    client: 'sqlite3',
+    // client: 'sqlite3',
+    client: 'pg',
     useNullAsDefault: true, 
     connection: {
       filename: './data/blog.db3',
