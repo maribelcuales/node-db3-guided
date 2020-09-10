@@ -23,10 +23,10 @@ function findById(id) {
 
 function add(userData) {
   return db("users")
-  .insert(userData, "id")
-  .then(ids => {
-    return findById(ids[0]); 
-  });
+    .insert(userData, "id")
+    .then(ids => {
+      return findById(ids[0]); 
+    });
 } 
 
 /* 
@@ -39,12 +39,12 @@ post
 
 function update(id, changes) {
   return db("users")
-  .where({ id })
-  .update(changes)
+    .where({ id })
+    .update(changes)
 }
 
 function remove(id) {
   return db("users")
-  .where({ id })
-  .del()
+    .where({ id })
+    .del()
 }
