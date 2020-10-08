@@ -1,10 +1,12 @@
-const connectionString = process.env.DATABASE_URL || "postgresql://luis:pass@localhost/blog";  // ADD the username and password to an ENV variable 
+// const connectionString = process.env.DATABASE_URL || "postgresql://luis:pass@localhost/blog";  // ADD the username and password to an ENV variable 
+
+const connectionString = process.env.DATABASE_URL || "postgresql://postgres:secretpassword@localhost:5433/blog";
 
 
 module.exports = {
   development: {
-    // client: 'sqlite3',
-    client: 'pg',
+    client: 'sqlite3',
+    // client: 'pg',
     useNullAsDefault: true, 
     connection: {
       filename: './data/blog.db3',
@@ -44,6 +46,12 @@ module.exports = {
   production: {
     client: 'pg',  // remember to npm i pg
     connection: connectionString,
+    // connection: {
+    //   database: 'blog',
+    //   user: 'postgres',
+    //   password: 'secretpassword',
+    //   port: 5433
+    // },
     pool: {
       min: 2,
       max: 10
